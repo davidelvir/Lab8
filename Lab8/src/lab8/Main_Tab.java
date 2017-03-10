@@ -707,9 +707,11 @@ public class Main_Tab extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
-        for (int i = 0; i < batallas.size()-1; i++) {
+        
+        for (int i = 0; i < batallas.size(); i++) {
             System.out.println("Batalla: "+i);
-            batallas.get(i).run();
+            Hilo_Pelea temp = batallas.get(i);
+            temp.start();
         }
     }//GEN-LAST:event_jButton3MouseClicked
 
