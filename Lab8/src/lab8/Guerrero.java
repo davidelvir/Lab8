@@ -5,13 +5,14 @@
  */
 package lab8;
 
+import java.io.Serializable;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author David
  */
-public abstract class Guerrero {
+public abstract class Guerrero implements Serializable{
     private String nombre;
     private String nickname;
     private double ataque;
