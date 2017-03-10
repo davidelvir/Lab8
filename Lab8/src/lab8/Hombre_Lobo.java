@@ -11,13 +11,18 @@ package lab8;
  */
 public class Hombre_Lobo extends Guerrero{
 
-    public Hombre_Lobo(String nombre, String nickname, int ataque, int defensa, double salud, int puntos) {
-        super(nombre, nickname, ataque, defensa, salud, puntos);
+    public Hombre_Lobo(String nombre, String nickname, double ataque, double defensa, double salud) {
+        super(nombre, nickname, ataque, defensa, salud);
     }
+
+    public Hombre_Lobo() {
+    }
+
+    
 
     @Override
     public void atacar(Guerrero p) {
-        p.setSalud2(super.getAtaque()-p.getDefensa());
+        p.setSalud2(p.getSalud()-(super.getAtaque()-p.getDefensa()));
     }
     
 }

@@ -14,11 +14,14 @@ public class Alumno extends Guerrero{
     private String carrera;
     private int edad;
 
-    public Alumno(int cuenta, String carrera, int edad, String nombre, String nickname, int ataque, int defensa, double salud, int puntos) {
-        super(nombre, nickname, ataque, defensa, salud, puntos);
+    public Alumno(int cuenta, String carrera, int edad, String nombre, String nickname, double ataque, double defensa, double salud) {
+        super(nombre, nickname, ataque, defensa, salud);
         this.cuenta = cuenta;
         this.carrera = carrera;
         this.edad = edad;
+    }
+
+    public Alumno() {
     }
 
     public int getCuenta() {

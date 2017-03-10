@@ -46,10 +46,17 @@ public class Hilo_Pelea extends Thread{
     
     public void run(){
         while(vive){
-            while(this.g2.getSalud()>0 || this.g1.getSalud()>0){
+            while(vive){
                 this.g1.atacar(g2);
                 this.g2.atacar(g1);
-                if(this.g1.getSalud() == 0 || this.g2.getSalud() == 0){
+                System.out.println(g1.getNombre()+" "+g1.getSalud());
+                System.out.println(g2.getNombre()+" "+g2.getSalud());
+                if(g1.getSalud() == 0){
+                    g2.setPuntos(g2.getPuntos()+3);
+                    vive = false;
+                }
+                if(g2.getSalud() == 0){
+                    g1.setPuntos(g1.getPuntos()+3);
                     vive = false;
                 }
                 try {

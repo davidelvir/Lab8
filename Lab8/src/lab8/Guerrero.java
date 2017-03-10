@@ -20,13 +20,12 @@ public abstract class Guerrero implements Serializable{
     private double salud;
     private int puntos;
 
-    public Guerrero(String nombre, String nickname, int ataque, int defensa, double salud, int puntos) {
+    public Guerrero(String nombre, String nickname, double ataque, double defensa, double salud) {
         this.nombre = nombre;
         this.nickname = nickname;
         setAtaque(ataque);
         setDefensa(defensa);
         setSalud(salud);
-        this.puntos = puntos;
     }
 
     public String getNombre() {
@@ -53,24 +52,27 @@ public abstract class Guerrero implements Serializable{
         while(ataque < 200 || ataque >300){
             ataque = Integer.parseInt(JOptionPane.showInputDialog("El ataque debe estar entre 200 y 300"));
         }
-        if(ataque>200 && ataque < 300){
             this.ataque = ataque;
-        }
+        
     }
     public void setAtaque2(double ataque) {
         if(ataque<200){
             this.ataque = 200;
         }
-        if(ataque>300){
+        else if(ataque>300){
             this.ataque = 300;
+        }else{
+        this.ataque = ataque;
         }
     }
     public void setDefensa2(double defensa){
         if(defensa < 25){
             this.defensa = 25;
         }
-        if(defensa > 75){
+        else if(defensa > 75){
             this.defensa = 75;
+        }else{
+        this.defensa = defensa;
         }
     }
     
@@ -78,8 +80,10 @@ public abstract class Guerrero implements Serializable{
         if(salud <0){
             this.salud = 0;
         }
-        if(salud > 800){
+        else if(salud > 800){
             this.salud = 800;
+        }else{
+        this.salud = salud;
         }
     }
     public double getDefensa() {
@@ -87,10 +91,13 @@ public abstract class Guerrero implements Serializable{
     }
 
     public void setDefensa(double defensa) {
-        while(defensa > 25 || defensa > 75){
+        while(defensa < 25 || defensa > 75){
             defensa = Integer.parseInt(JOptionPane.showInputDialog("La defensa debe estar entre 25 y 75"));
         }
         this.defensa = defensa;
+    }
+
+    public Guerrero() {
     }
 
     
@@ -103,9 +110,8 @@ public abstract class Guerrero implements Serializable{
         while (salud < 800) {
             salud = Integer.parseInt(JOptionPane.showInputDialog("La salud debe ser mayor a 800"));
         }
-        if(salud > 800){
             this.salud = salud;
-        }
+        
     }
 
     public int getPuntos() {

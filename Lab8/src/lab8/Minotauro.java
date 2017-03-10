@@ -11,13 +11,18 @@ package lab8;
  */
 public class Minotauro extends Guerrero{
 
-    public Minotauro(String nombre, String nickname, int ataque, int defensa, double salud, int puntos) {
-        super(nombre, nickname, ataque, defensa, salud, puntos);
+    public Minotauro(String nombre, String nickname, double ataque, double defensa, double salud) {
+        super(nombre, nickname, ataque, defensa, salud);
     }
+
+    public Minotauro() {
+    }
+
+    
 
     @Override
     public void atacar(Guerrero p) {
-        p.setSalud2((super.getAtaque()*2)-(p.getDefensa()+p.getDefensa()*0.5));
+        p.setSalud2(p.getSalud()-((super.getAtaque()*2)-(p.getDefensa()+p.getDefensa()*0.5)));
         super.setAtaque2(super.getAtaque()*0.1);
     }
     

@@ -11,13 +11,18 @@ package lab8;
  */
 public class Fenix extends Guerrero{
 
-    public Fenix(String nombre, String nickname, int ataque, int defensa, double salud, int puntos) {
-        super(nombre, nickname, ataque, defensa, salud, puntos);
+    public Fenix(String nombre, String nickname, double ataque, double defensa, double salud) {
+        super(nombre, nickname, ataque, defensa, salud);
     }
+
+    public Fenix() {
+    }
+
+    
 
     @Override
     public void atacar(Guerrero p) {
-        p.setSalud2((super.getAtaque()*0.75)-p.getDefensa());
+        p.setSalud2(p.getSalud()-((super.getAtaque()*0.75)-p.getDefensa()));
         p.setAtaque2(p.getAtaque()-(p.getAtaque()*0.05));
     }
     

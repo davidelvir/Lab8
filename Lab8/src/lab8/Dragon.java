@@ -11,13 +11,18 @@ package lab8;
  */
 public class Dragon extends Guerrero{
 
-    public Dragon(String nombre, String nickname, int ataque, int defensa, double salud, int puntos) {
-        super(nombre, nickname, ataque, defensa, salud, puntos);
+    public Dragon(String nombre, String nickname, double ataque, double defensa, double salud) {
+        super(nombre, nickname, ataque, defensa, salud);
     }
+
+    public Dragon() {
+    }
+
+    
 
     @Override
     public void atacar(Guerrero p) {
-        p.setSalud2((super.getAtaque()*0.35)-p.getDefensa());
+        p.setSalud2(p.getSalud()-((super.getAtaque()*0.35)-p.getDefensa()));
         p.setDefensa2(p.getDefensa()-(p.getDefensa()*0.15));
     }
     
