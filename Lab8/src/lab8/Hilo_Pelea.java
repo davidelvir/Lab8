@@ -45,6 +45,7 @@ public class Hilo_Pelea extends Thread{
     }
     
     public void run(){
+        adminPelea ap = new adminPelea("./peleas.txt");
         while(vive){
             while(vive){
                 this.g1.atacar(g2);
@@ -56,6 +57,8 @@ public class Hilo_Pelea extends Thread{
                     g1.setPuntos(g1.getPuntos()+3);
                     vive = false;
                 }
+                System.out.println(g1.getNombre()+" "+g1.getSalud());
+                System.out.println(g2.getNombre()+" "+g2.getSalud());
                 this.g2.atacar(g1);
                 if(g1.getSalud() == 0){
                     g2.setPuntos(g2.getPuntos()+3);
@@ -65,21 +68,13 @@ public class Hilo_Pelea extends Thread{
                     g1.setPuntos(g1.getPuntos()+3);
                     vive = false;
                 }
-                System.out.println(g1.getNombre()+" "+g1.getSalud());
-                System.out.println(g2.getNombre()+" "+g2.getSalud());
-                if(g1.getSalud() == 0){
-                    g2.setPuntos(g2.getPuntos()+3);
-                    vive = false;
-                }
-                if(g2.getSalud() == 0){
-                    g1.setPuntos(g1.getPuntos()+3);
-                    vive = false;
-                }
+                
                 try {
                     Thread.sleep(0);
                 } catch (Exception e) {
                 }
             }
+            ap.escribirArchivo();
         }
     }
 }
